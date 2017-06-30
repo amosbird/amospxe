@@ -1,16 +1,17 @@
 pxe:
-  image: vimagick/dnsmasq
+  image: amosbird/pxe
   net: host
   volumes:
     - ./dnsmasq.conf:/etc/dnsmasq.d/dnsmasq.conf
     - ./tftpboot:/tftpboot
+  env_file: dnsmasq.env
   restart: always
 
-web:
-  image: nginx:alpine
-  ports:
-    - "80:80"
-  volumes:
-    - ./nginx.conf:/etc/nginx/nginx.conf
-    - ./html:/var/lib/nginx/html
-  restart: always
+# web:
+#   image: nginx:alpine
+#   ports:
+#     - "80:80"
+#   volumes:
+#     - ./nginx.conf:/etc/nginx/nginx.conf
+#     - ./html:/var/lib/nginx/html
+#   restart: always

@@ -11,7 +11,7 @@ MENU COLOR disabled 1;34;44 #c00090f0 #00000000 std
 
 LABEL memtest64
     MENU LABEL Memtest-64
-    KERNEL http://amospxe/centos7/isolinux/memtest
+    KERNEL /centos7/isolinux/memtest
 
 LABEL centos
     MENU LABEL CentOS
