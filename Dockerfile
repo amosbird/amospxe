@@ -1,9 +1,11 @@
-FROM alpine:edge
+FROM alpine
+
 LABEL maintainer "Amos Bird - amosbird@gmail.com"
 
-RUN apk --no-cache add dnsmasq
+RUN apk add --no-cache dnsmasq
 
-ADD start.sh /start.sh
-RUN chmod +x /start.sh
+EXPOSE 53/tcp \
+       53/udp \
+       67/udp
 
-CMD ["/start.sh"]
+ENTRYPOINT ["dnsmasq", "--no-daemon"]

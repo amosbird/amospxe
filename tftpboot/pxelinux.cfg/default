@@ -1,4 +1,4 @@
-DEFAULT vesamenu.c32
+DEFAULT centos7
 TIMEOUT 300
 PROMPT 1
 NOESCAPE 1
@@ -9,11 +9,16 @@ MENU WIDTH 78
 MENU MARGIN 0
 MENU COLOR disabled 1;34;44 #c00090f0 #00000000 std
 
-LABEL memtest64
-    MENU LABEL Memtest-64
-    KERNEL /centos7/isolinux/memtest
+LABEL centos7
+    MENU LABEL CentOS 7 x86_64
+    KERNEL centos7/isolinux/vmlinuz
+    APPEND initrd=centos7/isolinux/initrd.img method=http://amospxe/centos7 devfs=nomount
 
-LABEL centos
-    MENU LABEL CentOS
-    KERNEL vesamenu.c32
-    APPEND pxelinux.cfg/centos.pxe
+LABEL centos7-ks
+    MENU LABEL CentOS 7 x86_64
+    KERNEL centos7/isolinux/vmlinuz
+    APPEND initrd=centos7/isolinux/initrd.img method=http://amospxe/centos7 devfs=nomount
+
+LABEL local
+    MENU LABEL Boot from Hard Drive
+    LOCALBOOT 0xffff
